@@ -1,15 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xs:schema xmlns="http://MetadatenRIS.LegalDocML.de/1.8/"
-    xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" targetNamespace="http://MetadatenRIS.LegalDocML.de/1.8/" version="LegalDocML.de 1.8">
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified"
+           targetNamespace="http://MetadatenRIS.LegalDocML.de/1.8/"
+           version="LegalDocML.de 1.8">
     <!-- ********************************* Hinweis zur Lizensierung ********************************* -->
     <xs:annotation>
         <xs:appinfo>
             <copyright-hinweis>2024 DigitalService GmbH des Bundes</copyright-hinweis>
-            <lizenz url="https://opensource.org/license/mit/" kurzbezeichnung="MIT" langbezeichnung=""/>
-            <autor organisation="DigitalService GmbH des Bundes" referat="" organisatorischer-rahmen=""/>
+            <lizenz url="https://opensource.org/license/mit/"
+                    kurzbezeichnung="MIT"
+                    langbezeichnung=""/>
+            <autor organisation="DigitalService GmbH des Bundes"
+                   referat=""
+                   organisatorischer-rahmen=""/>
         </xs:appinfo>
     </xs:annotation>
-    <xs:import namespace="http://MetadatenMods.LegalDocML.de/1.8/" schemaLocation="./norms-application-only-metadata.xsd"/>
+    <xs:import namespace="http://MetadatenMods.LegalDocML.de/1.8/"
+               schemaLocation="./norms-application-only-metadata.xsd"/>
     <xs:element name="legalDocML.de_metadaten">
         <xs:complexType>
             <xs:sequence>
@@ -17,12 +25,16 @@
                 <xs:element name="art" type="SimpleMetadataType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="typ" type="SimpleMetadataType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="subtyp" type="SimpleMetadataType" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="bezeichnungInVorlage" type="SimpleMetadataType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="bezeichnungInVorlage" type="SimpleMetadataType" minOccurs="0"
+                            maxOccurs="unbounded"/>
                 <xs:element name="normgeber" type="SimpleMetadataType" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="beschliessendesOrgan" type="BeschliessendesOrganType" minOccurs="0" maxOccurs="unbounded"/>
-                <xs:element name="organisationsEinheit" type="SimpleMetadataType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="beschliessendesOrgan" type="BeschliessendesOrganType" minOccurs="0"
+                            maxOccurs="unbounded"/>
+                <xs:element name="organisationsEinheit" type="SimpleMetadataType" minOccurs="0"
+                            maxOccurs="unbounded"/>
                 <xs:element name="artDerNorm" type="ArtDerNormFrameType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="einzelelement" type="EinzelelementType" minOccurs="0" maxOccurs="unbounded"/>
+                <xs:element name="abkuerzung" type="AbkuerzungType" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="inkraft" type="InkraftType" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="ausserkraft" type="AusserkraftType" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="vollzitat" type="xs:string" minOccurs="0" maxOccurs="1"/>
@@ -70,7 +82,8 @@
 
     <xs:simpleType name="ArtDerNormFrameContentType">
         <xs:restriction base="xs:string">
-            <xs:pattern value="(SN|ÄN|ÜN|SN,ÄN|SN,ÜN|ÄN,SN|ÄN,ÜN|ÜN,SN|ÜN,ÄN|ÄN,SN,ÜN|ÄN,ÜN,SN|SN,ÄN,ÜN|SN,ÜN,ÄN|ÜN,SN,ÄN|ÜN,ÄN,SN)"/>
+            <xs:pattern
+                    value="(SN|ÄN|ÜN|SN,ÄN|SN,ÜN|ÄN,SN|ÄN,ÜN|ÜN,SN|ÜN,ÄN|ÄN,SN,ÜN|ÄN,ÜN,SN|SN,ÄN,ÜN|SN,ÜN,ÄN|ÜN,SN,ÄN|ÜN,ÄN,SN)"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -114,6 +127,21 @@
                                 </xs:restriction>
                             </xs:simpleType>
                         </xs:union>
+                    </xs:simpleType>
+                </xs:attribute>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="AbkuerzungType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="refersTo" use="required">
+                    <xs:simpleType>
+                        <xs:restriction base="xs:string">
+                            <xs:enumeration value="interne-abkuerzung"/>
+                            <xs:enumeration value="nicht-amtliche-abkuerzung"/>
+                        </xs:restriction>
                     </xs:simpleType>
                 </xs:attribute>
             </xs:extension>
@@ -191,7 +219,8 @@
 
     <xs:simpleType name="eId-verweis">
         <xs:restriction base="xs:string">
-            <xs:pattern value="#(([a-zäöüß0-9]+-[nz][a-zäöüß0-9%~]+(\.[a-zäöüß0-9]+)*)_)*((art|preambel|einleitung|schluss)-[nz][a-zäöüß0-9%~]+(\.[a-zäöüß0-9%~]+)*)"/>
+            <xs:pattern
+                    value="#(([a-zäöüß0-9]+-[nz][a-zäöüß0-9%~]+(\.[a-zäöüß0-9]+)*)_)*((art|preambel|einleitung|schluss)-[nz][a-zäöüß0-9%~]+(\.[a-zäöüß0-9%~]+)*)"/>
         </xs:restriction>
     </xs:simpleType>
 
