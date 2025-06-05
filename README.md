@@ -1,2 +1,3 @@
 # ris-norms-ldml-schema-extensions
-Shared schema files for extending the LDML standard   
+
+This repo contains schema files that are being used and modified by team norms and team norms-migration.
