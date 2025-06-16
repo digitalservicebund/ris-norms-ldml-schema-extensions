@@ -9,4 +9,5 @@ As this repo is not in use yet and we first want to build a common understanding
 - each team can directly push to `main`
 - if necessary teams can work on separate branches if they have changes that are still work in progress
 - the norms team should add their `norms-application-only-metadata.xsd`, as it is currently referenced by the present XSD files but not part of this repo
+- 
 As this repository is currently not in use, the XSD files are not guranteed to be up to date
