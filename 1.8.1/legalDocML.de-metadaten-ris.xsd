@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xs:schema xmlns="http://MetadatenRIS.LegalDocML.de/1.7.2/"
+<xs:schema xmlns="http://MetadatenRIS.LegalDocML.de/1.8.1/"
            xmlns:xs="http://www.w3.org/2001/XMLSchema"
            elementFormDefault="qualified"
-           targetNamespace="http://MetadatenRIS.LegalDocML.de/1.7.2/"
-           version="LegalDocML.de 1.7.2">
+           targetNamespace="http://MetadatenRIS.LegalDocML.de/1.8.1/"
+           version="LegalDocML.de 1.8.1">
     <!-- ********************************* Hinweis zur Lizensierung ********************************* -->
     <xs:annotation>
         <xs:appinfo>
@@ -16,7 +16,7 @@
                    organisatorischer-rahmen=""/>
         </xs:appinfo>
     </xs:annotation>
-    <xs:import namespace="http://MetadatenMods.LegalDocML.de/1.7.2/"
+    <xs:import namespace="http://MetadatenMods.LegalDocML.de/1.8.1/"
                schemaLocation="./norms-application-only-metadata.xsd"/>
     <xs:element name="legalDocML.de_metadaten">
         <xs:complexType>
@@ -40,8 +40,9 @@
                 <xs:element name="vollzitat" type="xs:string" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="standangabe" type="StandangabeType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="bedingtesInkrafttreten" type="EmptyType" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="verweise" type="Verweise" minOccurs="0" maxOccurs="1"/>
-                <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.7.2/"/>
+                <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.8.1/"/>
             </xs:sequence>
         </xs:complexType>
     </xs:element>
@@ -196,7 +197,17 @@
             <xs:element type="xs:string" name="ermaechtigungMitwirkendesOrgan" minOccurs="0"/>
             <xs:element type="xs:string" name="ermaechtigungGegenstand" minOccurs="0"/>
         </xs:choice>
+        <xs:attribute name="sourceEId" type="xs:string"/>
+        <xs:attribute name="targetWorkEli1" type="xs:string"/>
+        <xs:attribute name="targetWorkEli2" type="xs:string"/>
     </xs:complexType>
+
+    <xs:simpleType name="Stand">
+        <xs:restriction base="xs:string">
+            <xs:pattern
+                    value="(praetext|volldokumentation)"/>
+        </xs:restriction>
+    </xs:simpleType>
 
     <xs:simpleType name="standangabeTypeLiterals">
         <xs:annotation>
@@ -220,7 +231,7 @@
     <xs:simpleType name="eId-verweis">
         <xs:restriction base="xs:string">
             <xs:pattern
-                    value="#(([a-zäöüß0-9]+-[a-zäöüß0-9]+(\.[a-zäöüß0-9]+)*)_)*((para|art|preambel|einleitung|schluss)-[a-zäöüß0-9]+(\.[a-zäöüß0-9]+)*)"/>
+                    value="#(([a-zäöüß0-9]+-[nz][a-zäöüß0-9%~]+(\.[a-zäöüß0-9]+)*)_)*((para|art|preambel|einleitung|schluss)-[nz][a-zäöüß0-9%~]+(\.[a-zäöüß0-9%~]+)*)"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -232,8 +243,7 @@
 
     <xs:simpleType name="dateLiterals">
         <xs:annotation>
-            <xs:documentation>Ein maschinenlesbares Datum, formatiert als JJJJ-MM-TT. Diese Datumsangabe bezieht sich
-                auf die
+            <xs:documentation>Ein maschinenlesbares Datum, formatiert als JJJJ-MM-TT. Diese Datumsangabe bezieht sich auf die
                 zum zu referenzierenden Zeitpunkt in der Bundesrepublik Deutschland gültige Zeitzone.
             </xs:documentation>
         </xs:annotation>
