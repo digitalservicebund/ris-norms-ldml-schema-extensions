@@ -40,8 +40,8 @@
                 <xs:element name="vollzitat" type="xs:string" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="standangabe" type="StandangabeType" minOccurs="0" maxOccurs="unbounded"/>
                 <xs:element name="bedingtesInkrafttreten" type="EmptyType" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="verweise" type="Verweise" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
                 <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.8.1/"/>
             </xs:sequence>
         </xs:complexType>
