@@ -10,6 +10,3 @@ As this repo is not in use yet and we first want to build a common understanding
 - the code on `main` is the single source of truth
 - each team can directly push to `main`
 - if necessary teams can work on separate branches if they have changes that are still work in progress
-
-> [!WARNING]
-> As this repository is currently not in use, the XSD files are not guranteed to be up to date
