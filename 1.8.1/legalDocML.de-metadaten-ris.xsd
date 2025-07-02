@@ -42,6 +42,7 @@
                 <xs:element name="bedingtesInkrafttreten" type="EmptyType" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="verweise" type="Verweise" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="dokNr" type="DokNr" minOccurs="0" maxOccurs="unbounded" />
                 <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.8.1/"/>
             </xs:sequence>
         </xs:complexType>
@@ -249,6 +250,13 @@
         </xs:annotation>
         <xs:restriction base="xs:date">
             <xs:pattern value="[12][0-9]{3}-(0[1-9]|1[0-2])-(0[1-9]|[12][0-9]|3[0-1])"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="DokNr">
+        <xs:restriction base="xs:string">
+            <xs:minLength value="13" />
+            <xs:maxLength value="26" />
         </xs:restriction>
     </xs:simpleType>
 
