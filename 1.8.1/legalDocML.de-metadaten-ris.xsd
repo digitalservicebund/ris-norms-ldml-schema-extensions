@@ -42,7 +42,7 @@
                 <xs:element name="bedingtesInkrafttreten" type="EmptyType" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="verweise" type="Verweise" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
-                <xs:element name="dokNr" type="DokNr" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="doknr" type="Doknr" minOccurs="0" maxOccurs="unbounded" />
                 <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.8.1/"/>
             </xs:sequence>
         </xs:complexType>
@@ -253,7 +253,7 @@
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:simpleType name="DokNr">
+    <xs:simpleType name="Doknr">
         <xs:restriction base="xs:string">
             <xs:minLength value="13" />
             <xs:maxLength value="26" />
