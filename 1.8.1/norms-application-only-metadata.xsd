@@ -59,10 +59,16 @@
         <xs:element name="amended-norm-expressions" minOccurs="0">
           <xs:complexType>
             <xs:sequence>
-              <xs:element name="norm-expression" type="xs:string" maxOccurs="unbounded"/>
+              <xs:element name="norm-expression" maxOccurs="unbounded">
+                <xs:complexType mixed="true">
+                  <xs:attribute name="created-by-zeitgrenze" type="xs:boolean" use="required"/>
+                  <xs:attribute name="created-by-replacing-existing-expression" type="xs:boolean" use="required"/>
+                </xs:complexType>
+              </xs:element>
             </xs:sequence>
           </xs:complexType>
         </xs:element>
+
       </xs:sequence>
     </xs:complexType>
     <xs:key name="geltungszeitKey">
