@@ -48,7 +48,15 @@
                     <xs:element name="typ" type="xs:string"/>
                     <xs:element name="geltungszeit" type="GUIDLiterals"/>
                     <xs:element name="eid" type="xs:string"/>
-                    <xs:element name="zielnorm" type="xs:string"/>
+                    <xs:element name="zielnorm">
+                      <xs:complexType>
+                        <xs:simpleContent>
+                          <xs:extension base="xs:string">
+                            <xs:attribute name="new-work" type="xs:boolean" />
+                          </xs:extension>
+                        </xs:simpleContent>
+                      </xs:complexType>
+                    </xs:element>
                   </xs:sequence>
                 </xs:complexType>
               </xs:element>
