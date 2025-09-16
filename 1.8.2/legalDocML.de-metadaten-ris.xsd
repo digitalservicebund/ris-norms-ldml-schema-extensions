@@ -43,6 +43,7 @@
                 <xs:element name="verweise" type="Verweise" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="doknr" type="DoknrRef" minOccurs="0" maxOccurs="unbounded" />
+                <xs:element name="textnachweis-geltung-ab" type="TextnachweisType" minOccurs="0" maxOccurs="1"/>
                 <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.8.2/"/>
             </xs:sequence>
         </xs:complexType>
@@ -155,6 +156,10 @@
     </xs:complexType>
 
     <xs:complexType name="AusserkraftType">
+        <xs:attribute name="date" type="dateLiterals" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="TextnachweisType">
         <xs:attribute name="date" type="dateLiterals" use="required"/>
     </xs:complexType>
 
