@@ -44,6 +44,7 @@
                 <xs:element name="stand" type="Stand" minOccurs="0" maxOccurs="1"/>
                 <xs:element name="doknr" type="DoknrRef" minOccurs="0" maxOccurs="unbounded" />
                 <xs:element name="textnachweis-geltung-ab" type="TextnachweisType" minOccurs="0" maxOccurs="1"/>
+                <xs:element name="gegenstandslos" type="EmptyType" minOccurs="0" maxOccurs="1"/>
                 <xs:any minOccurs="0" namespace="http://MetadatenMods.LegalDocML.de/1.8.2/"/>
             </xs:sequence>
         </xs:complexType>
